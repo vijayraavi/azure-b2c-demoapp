@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+
+  <title>Azure B2C Demo App</title>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="https://docs.microsoft.com/en-in/azure/active-directory-b2c/media/index/active-directory-b2c.svg">
+
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-zF4BRsG/fLiTGfR9QL82DrilZxrwgY/+du4p/c7J72zZj+FLYq4zY00RylP9ZjiT" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/"><img style="" src="https://docs.microsoft.com/en-in/azure/active-directory-b2c/media/index/active-directory-b2c.svg"/></a>
+      <a class="navbar-brand" href="/">Azure B2C Demo</a>
+    </div>
+
+    <div class="navbar-collapse collapse navbar-right" id="bs-example-navbar-collapse-2" aria-expanded="false" style="height: 1px;">
+        <% if (!user) { %>
+          <a href="/login/?p=B2C_1_signin" class="btn btn-success navbar-btn "><i class="fa fa-user-circle"></i>&nbsp; Sign In</a>
+        <% } else { %>
+          <% var name = (user.displayName) ? user.displayName : user.email[0] %>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user-o"></i>&nbsp; <%= name %> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                  <li><a href="/account">View Account</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/login/?p=B2C_1_updateprofile">Update Your Details</a></li>
+                  <li><a href="/login/?p=B2C_1_resetpassword">Reset Password</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/logout">Logout</a></li>
+                </ul>
+            </li>
+            <li>
+              &nbsp;&nbsp;&nbsp;
+            </li>
+          </ul>
+        <% } %>
+    </div>
+  </div>
+</nav>

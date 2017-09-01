@@ -1,0 +1,9 @@
+body { 
+   padding-top: 65px; 
+}
+.navbar-header img {
+   height:45px; float:left; padding-top:7px; padding-right:20px
+ }
+ .btn, .navbar-brand, .dropdown-toggle {
+   font-size: 140% !important ;
+ }

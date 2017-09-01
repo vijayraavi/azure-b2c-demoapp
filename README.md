@@ -1,9 +1,13 @@
-#Azure Active Directory OIDC Web Sample
+# Azure Active Directory OIDC Web Sample
 
 This Node.js app will give you with a quick and easy way to set up a Web application in node.js with Express using OpenID Connect. The sample server included in the download are designed to run on any platform.
 
 We've released all of the source code for this example in GitHub under an MIT license, so feel free to clone (or even better, fork!) and provide feedback on the forums.
 
+## Forked Version Notes
+
+The changes are mainly cosmetic, using Bootstrap and Fontawesome to make the app look more presentable.
+The default `config.js` file has been renamed `config.js.sample` preventing accidental checkin of secrets into Git. Before starting copy and rename the .sample file back to `config.js` and edit with your configuration as described in step 4.
 
 ## Quick Start
 

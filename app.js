@@ -122,7 +122,7 @@ passport.use(new OIDCStrategy({
   },
   function(iss, sub, profile, accessToken, refreshToken, done) {
     if (!profile.oid) {
-      return done(new Error("No oid found"), null);
+      return done(new Error("No oid found, make sure signin & sign up policies include objectId in their application claims"), null);
     }
     // asynchronous verification, for effect...
     process.nextTick(function () {
@@ -262,5 +262,6 @@ app.get('/logout', function(req, res){
   });
 });
 
+app.use(express.static('public'))
 app.listen(3000);
 
