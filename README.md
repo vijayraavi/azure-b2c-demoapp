@@ -19,15 +19,25 @@ If you don't have an Azure AD B2C Tenant yet, please [create one](https://azure.
 
 Next let's register an web application in your tenant.
 
-* In the main page of your tenant, click `Manage B2C settings`, and you will be redirected to the settings page.
+* In Azure port of your B2C tenant, use the search bar & search for 'Azure AD B2C', click on it, and you will be redirected to the B2C settings blade. Pin it to your dash you will be using it a lot.
 
-* Click `Applications`, then click `Add`. Enter a name like 'my_b2c_app', and switch the `Web App / Web API` option to yes. After that, enter 'http://localhost:3000/auth/openid/return' into the `Reply URL` field. Then click `Generate key` to generate a app key, and save it somewhere. This app key is the client secret of your application. Now click `Create` button to finish registration.
+* Click **Applications**, then click **Add**. Enter a name like 'my_b2c_app', and switch the **Web App / Web API** option to *yes*. After that, enter `http://localhost:3000/auth/openid/return` into the 'Reply URL' field, click **Create**. 
+* Then go into your new app, and into the **Keys** blade and click **Generate key** to generate a app key, and save it somewhere. This app key is the *clientSecret* of your application.
 
-* Click the application you just created, copy the `Application ID` field and save it somewhere. This value is the clientID of your application.
+* Click **Properties**, copy the **Application ID** field and save it somewhere. This value is the *clientID* of your application. Come out of the app and return to the main B2C blade 
 
-* Now let's add some policies we will use for this sample. In the setting page, add a sign-in policy, a sign-up poligy, a profile-editing policy and a password-reset policy. When you add the policies, use the names 'signin', 'signup', 'updateprofile' and 'resetpassword' respectively. For `Identity providers`, choose `Email signup`; for `Application claims`, choose `Email Addresses`, `User's Object ID` and any other claims you want; for `Sign-up attributes`, choose `Email Address` and anything else you like.
+* Now let's add some policies we will use for this sample. In the B2C blade, add four policies; sign-in policy, a sign-up policy, a profile-editing policy and a password-reset policy. When you add the policies, you must use the names as follows:
+  - `signin` - Sign-in policy
+  - `signup` - Sign-up policy
+  - `updateprofile` - Profile editing policy
+  - `resetpassword` - Password reset policy 
+ 
+For **Identity providers**, choose `Email signup` on the sign-up policy, for the other three choose `Local Account SignIn`  
+For **Application claims** on all four policies, choose `Email Address`, `User's Object ID` & `Display Name`. 
+For **Sign-up attributes** (signup policy) choose `Email Address`  
+For **Profile attributes** (updateprofile policy) choose `Display Name` and any other fields you wish the user to be able to set.
 
-* Now we have a B2C web application and policies registered. Note that Azure AD adds a 'B2C_1_' prefix automatically to all policy names, so the policy names we will use are actually 'B2C_1_signin', 'B2C_1_signup', 'B2C_1_updateprofile' and 'B2C_1_resetpassword'. 
+* Now we have a B2C web application and policies registered. Note that Azure AD adds a `B2C_1_` prefix automatically to all policy names, so the policy names we will use are actually `B2C_1_signin`, `B2C_1_signup`, `B2C_1_updateprofile` and `B2C_1_resetpassword`. 
 
 ### Step 2: Download node.js for your platform
 To successfully use this sample, you need a working installation of Node.js.
