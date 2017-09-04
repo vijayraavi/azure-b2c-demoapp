@@ -4,7 +4,8 @@
   "license": "MIT",
   "version": "1.0.0",
   "scripts": {
-    "start": "node app.js"
+    "start-nolog": "node app.js",
+    "start": "node app.js | bunyan"
   },
   "repository": {
     "type": "git",
