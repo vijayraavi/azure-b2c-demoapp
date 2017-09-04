@@ -46,7 +46,7 @@ var mongoose = require('mongoose');
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 var log = bunyan.createLogger({
-    name: 'Microsoft OIDC Example Web Application'
+    name: 'Azure B2C Demo'
 });
 
 /******************************************************************************
@@ -263,5 +263,6 @@ app.get('/logout', function(req, res){
 });
 
 app.use(express.static('public'))
-app.listen(3000);
-
+var listener = app.listen(process.env.PORT || '3000', function() {
+  log.info('Server listening on port ' + listener.address().port);
+});

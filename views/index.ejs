@@ -5,17 +5,18 @@
 
   <div class="jumbotron">
     <% if (user) { %>
-      <% var name = (user.displayName) ? user.displayName : user.email[0] %>
+      <% var name = (user.displayName) ? user.displayName : user.emails[0] %>
       <h2>Hello <%= name %></h2>
       <p>
         You are now logged in via Azure B2C. Pretty Cool.
       </p>
+      <a href="/account" class="btn btn-success navbar-btn "><i class="fa fa-address-card"></i>&nbsp; View user account details</a>      
     <% } else { %>
       <h2>Azure B2C Demo App</h2>
       <p>
         This is a simple Node.js web app, designed to demo the sign-up and login process using Azure B2C. Find my <a target="_new" href="https://github.com/benc-uk/B2C-WebApp-OpenIDConnect-NodeJS">source on Github</a>
       </p>
-      <a href="/login/?p=B2C_1_signup" class="btn btn-primary navbar-btn "><i class="fa fa-user-plus"></i>&nbsp; Sign up as a new user</a>
+      <a href="/login/?p=B2C_1_signup" class="btn btn-success navbar-btn "><i class="fa fa-user-plus"></i>&nbsp; Sign up as a new user</a>
     <% } %>
   </div>
 
