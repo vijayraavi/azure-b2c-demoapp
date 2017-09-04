@@ -5,10 +5,15 @@
 
   <div class="jumbotron">
     <% if (user) { %>
-      <% var name = (user.displayName) ? user.displayName : user.emails[0] %>
+      <% 
+      var name = (user.displayName != "unknown") ? user.displayName : user.emails[0] 
+      var idp = (user._json.idp) ? user._json.idp : 'Local account'
+      idp = idp.replace('.com', '')
+      %>
       <h2>Hello <%= name %></h2>
       <p>
-        You are now logged in via Azure B2C. Pretty Cool.
+        You are now logged in via Azure B2C. Pretty Cool. <br/>
+        Your identity provider is: <b style='color:dodgerblue; text-transform:capitalize;'><%= idp %></b>
       </p>
       <a href="/account" class="btn btn-success navbar-btn "><i class="fa fa-address-card"></i>&nbsp; View user account details</a>      
     <% } else { %>
